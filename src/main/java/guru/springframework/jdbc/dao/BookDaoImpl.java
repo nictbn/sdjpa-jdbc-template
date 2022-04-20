@@ -59,7 +59,7 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public void deleteBook(Long id) {
-
+        jdbcTemplate.update("DELETE FROM book WHERE id = ?", id);
     }
 
     private RowMapper<Book> getBookMapper() {
