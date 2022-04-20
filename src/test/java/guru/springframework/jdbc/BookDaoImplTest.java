@@ -1,6 +1,6 @@
-package guru.springframework.jdbc.dao;
+package guru.springframework.jdbc;
 
-import guru.springframework.jdbc.domain.Author;
+import guru.springframework.jdbc.dao.BookDao;
 import guru.springframework.jdbc.domain.Book;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.context.ActiveProfiles;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 @ActiveProfiles("local")
 @DataJpaTest

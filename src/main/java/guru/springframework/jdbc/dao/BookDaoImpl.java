@@ -24,7 +24,11 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public Book findByTitle(String title) {
-        return null;
+        return jdbcTemplate.queryForObject(
+                "SELECT * FROM book where title = ?",
+                getBookMapper(),
+                title
+        );
     }
 
     @Override
