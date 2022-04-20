@@ -33,7 +33,15 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public Book saveNewBook(Book book) {
-        return null;
+        jdbcTemplate.update(
+                "INSERT INTO book (title, publisher, isbn, author_id) VALUES(?, ?, ?, ?)",
+                book.getTitle(),
+                book.getPublisher(),
+                book.getIsbn(),
+                book.getAuthorId()
+        );
+        Long createdId = jdbcTemplate.queryForObject("SELECT LAST_INSERT_ID()", Long.class);
+        return this.getById(createdId);
     }
 
     @Override
